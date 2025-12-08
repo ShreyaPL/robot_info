@@ -4,6 +4,8 @@
 #include <ros/ros.h>
 #include <string>
 
+class HydraulicSystemMonitor;
+
 class AGVRobotInfo : public RobotInfo{
     public:
         AGVRobotInfo(ros::NodeHandle *node_handle, std::string &robot_description,
@@ -15,4 +17,7 @@ class AGVRobotInfo : public RobotInfo{
         virtual void publish_data() override;
     private:
         std::string maximum_payload;
+
+        //object of the class as member
+        HydraulicSystemMonitor *hydraulic_monitor;
 };
